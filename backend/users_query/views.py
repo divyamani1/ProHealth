@@ -38,7 +38,7 @@ class UserQueryView(APIView):
             # for notification
             title = request.user.first_name + " " + request.user.last_name + " has asked you a question."
             message = request.data.get('title_problem')
-            users = User.objects.filter(is_doctor=True)
+            users = User.objects.filter(is_doctor=True, doctorprofile__speciality=request.data['tag'])
             query_id = serializer.data['id']
             query = get_object_or_404(UserQuery, id=query_id)
             for doc_user in users:

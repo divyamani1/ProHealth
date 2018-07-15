@@ -21,7 +21,6 @@ class QuickLinks extends React.Component {
 
     clearMessages = () => {
         readAllMessages().then(data => {
-            console.log(data);
         });
         this.listMessages();
     };
@@ -32,7 +31,6 @@ class QuickLinks extends React.Component {
 
     listMessages = () => {
         getMessages().then(data => {
-            console.log(data);
 
             var grouped = _.mapValues(_.groupBy(data, 'query'), clist =>
                 clist.map(list => _.omit(list, 'query')),
@@ -57,14 +55,12 @@ class QuickLinks extends React.Component {
     }
 
     render() {
-        // console.log(this.getMessageCount());
-        console.log(this.state.messages);
         return (
             <div>
                 {this.props.window && (
                     <div className="sidebar__head--icon sidebar__head--icon--notification">
                         <span className="icon--badge">
-                            <Link to="/notifications">
+                            <Link to="/messages">
                                 <i className=" material-icons">message</i>
                             </Link>
                             {this.state.messages &&

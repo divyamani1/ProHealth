@@ -4,10 +4,8 @@ import _ from 'lodash';
 import {sendMessage} from '../../actions/chatActions';
 
 class ChatInput extends React.Component {
+    state = {message: ''};
 
-    state = {message: ''}
-
-    
     handleChange = e => {
         this.setState({[e.target.name]: e.target.value});
     };
@@ -15,13 +13,15 @@ class ChatInput extends React.Component {
     handleSubmit = event => {
         event.preventDefault();
         const form_data = _.pick(this.state, ['message']);
-        sendMessage(this.props.query_id, form_data).then(() => {
-            this.setState({message: ''})
-            this.props.fetchMessage();
-        })
-            .catch(e => {
 
-            });
+        if (this.state.message) {
+            sendMessage(this.props.query_id, form_data)
+                .then(() => {
+                    this.setState({message: ''});
+                    this.props.fetchMessage();
+                })
+                .catch(e => {});
+        }
     };
 
     render() {
@@ -36,7 +36,10 @@ class ChatInput extends React.Component {
                     value={this.state.message}
                     onChange={this.handleChange}
                 />
-                <button className="btn" onClick={this.handleSubmit}>send</button>
+
+                <button className="btn" onClick={this.handleSubmit}>
+                    <div className="send-button material-icons">send</div>
+                </button>
             </form>
         );
     }

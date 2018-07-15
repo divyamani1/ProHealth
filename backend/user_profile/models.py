@@ -97,6 +97,26 @@ class UserProfile(models.Model):
         return self.user.email
 
 class DoctorProfile(models.Model):
+
+    TAG_CHOICES = [
+        ('S','General Surgery'),#for surgery
+        ('G', 'Obesterics and Gynecology'),#women disease related
+        ('P','General Physician'),#
+        ('Or','Orthopedic'),#bone related
+        ('D','Dermatology & Venerology'),#skin and sex disease related
+        ('A','Anesthesiology'),# anesthesia related
+        ('N','Nephrology'),#physiology and kidney related
+        ('Ps','Psychiatry'),#psychology
+        ('M','General Medicine'),
+        ('On','Oncology'),#tumours related
+        ('Pd','Paediatrics'),#child and disease
+        ('E','Ear Nose Throat'),#ent
+        ('O','Opthalmology'),#eye related
+        ('De','Dental Surgeon'),
+        ('T','Physiotherapy')
+    ]
+
+
     profile_photo = models.ImageField(
         null=True, upload_to=upload_posts_media_to, default=None)
     photo_doc = models.ImageField(
@@ -105,7 +125,7 @@ class DoctorProfile(models.Model):
     hospital = models.CharField(max_length=255)
     qualification = models.CharField(max_length=255)
     description = models.TextField(max_length=500)
-    speciality = models.CharField(max_length=255)
+    speciality = models.CharField(max_length=2, choices=TAG_CHOICES)
     exp_pts = models.IntegerField(default=0)
     nmc_code = models.CharField(max_length=20, blank=True)
     is_verified = models.BooleanField(default=False)

@@ -1,8 +1,9 @@
 import React from 'react';
-import {Icon} from 'antd';
 import moment from 'moment';
+import {GridLoader} from 'react-spinners';
 
 require('dotenv').config();
+
 
 class News extends React.Component {
     constructor(props) {
@@ -40,13 +41,13 @@ class News extends React.Component {
         return (
             <div>
                 <h1 className="heading heading-primary">News</h1>
-                {this.state.loading && (
-                    <div
-                        style={{width: '100%', textAlign: 'center'}}
-                        className="u-margin-top-small loading-icon">
-                        <Icon style={{fontSize: '5rem'}} type="loading" />
-                    </div>
-                )}
+                <div className="loading-icon">
+                    <GridLoader
+                        style={{display: 'inline-block'}}
+                        color={'#f0386b'}
+                        loading={this.state.loading}
+                    />
+                </div>
                 {!this.state.loading && (
                     <div className="query-list">
                         {this.state.news_list.map(item => (

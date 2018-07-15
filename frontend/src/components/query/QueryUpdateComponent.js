@@ -152,9 +152,21 @@ class QueryCreateComponent extends React.Component {
                                 placeholder="Related"
                                 value={this.state.tag}
                                 onChange={this.handleSelectChange}>
-                                <Option value="S">Skin</Option>
-                                <Option value="E">ent</Option>
-                                <Option value="P">Physician</Option>
+                                <Option value='S' >General Surgery</Option>
+                                <Option value='G' >Obesterics and Gynecology</Option>
+                                <Option value='P' >General Physician</Option>
+                                <Option value='Or'>Orthopedic</Option>
+                                <Option value='D' >Dermatology & Venerology</Option>
+                                <Option value='A' >Anesthesiology</Option>
+                                <Option value='N' >Nephrology</Option>
+                                <Option value='Ps'>Psychiatry</Option>
+                                <Option value='M' >General Medicine</Option>
+                                <Option value='On'>Oncology</Option>
+                                <Option value='Pd'>Paediatrics</Option>
+                                <Option value='E' >Ear Nose Throat</Option>
+                                <Option value='O' >Opthalmology</Option>
+                                <Option value='De'>Dental Surgeon</Option>
+                                <Option value='T' >Physiotherapy</Option>
                             </Select>
                         </div>
 

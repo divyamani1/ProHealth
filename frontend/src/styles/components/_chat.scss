@@ -18,9 +18,9 @@
 }
 
 .chat__footer {
-    background: #e6eaee;
     display: flex;
     padding: 10px;
+    border-top: 1px solid $color-grey-light-3;
     /*height: 60px;*/
     flex-shrink: 0;
 

@@ -35,7 +35,7 @@ class UserQuery(models.Model):
 
     name_of_patient = models.CharField(max_length=255, blank = False)
     age_of_patient = models.SmallIntegerField()
-    height_of_patient = models.CharField(max_length=8, blank = True)
+    height_of_patient = models.FloatField(max_length=8, blank = True)
     weight_of_patient = models.SmallIntegerField(blank = True, null=True)
     title_problem = models.CharField(max_length = 511)
     description  = models.TextField()

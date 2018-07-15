@@ -45,6 +45,22 @@ export const getQueries = () => {
         });
 };
 
+
+export const getTakenQueries = () => {
+    return fetch(QueryUrls.TAKEN_QUERIES, apiConfig())
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                Promise.reject(Error('Unable to get Queries'));
+            }
+        })
+        .catch(e => {
+            Promise.reject(e.message);
+        });
+};
+
+
 // API request for fetching one query item
 //
 export const getQueryItem = id => {

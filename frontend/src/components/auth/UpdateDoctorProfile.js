@@ -64,22 +64,24 @@ class UpdateDoctorProfile extends Component {
 
         // append files to formdata
         //
-        if (this.state.photo_doc) {
-            form_data.append(
-                'photo_doc',
-                this.state.photo_doc,
-                this.state.photo_doc.name,
-            );
-        }
+        //
+        if (!this.state.user.doctor_profile.is_verified) {
+            if (this.state.photo_doc) {
+                form_data.append(
+                    'photo_doc',
+                    this.state.photo_doc,
+                    this.state.photo_doc.name,
+                );
+            }
 
-        if (this.state.document1) {
-            form_data.append(
-                'document1',
-                this.state.document1,
-                this.state.document1.name,
-            );
+            if (this.state.document1) {
+                form_data.append(
+                    'document1',
+                    this.state.document1,
+                    this.state.document1.name,
+                );
+            }
         }
-
         // submit
         //
         for (var k in form_data) {
@@ -123,7 +125,6 @@ class UpdateDoctorProfile extends Component {
     };
 
     render() {
-
         let {is_verified, pending_verification} =
             this.state.user.doctor_profile || {};
 
@@ -204,17 +205,48 @@ class UpdateDoctorProfile extends Component {
                                             name="speciality"
                                             value={this.state.speciality}
                                             onChange={this.handleSelectChange}>
-                                            <Option value="neurology">
-                                                Neurology
+                                            <Option value="S">
+                                                General Surgery
                                             </Option>
-                                            <Option value="cardialogy">
-                                                Cardiology
+                                            <Option value="G">
+                                                Obesterics and Gynecology
                                             </Option>
-                                            <Option value="gynecology">
-                                                Gynecology
-                                            </Option>
-                                            <Option value="genral">
+                                            <Option value="P">
                                                 General Physician
+                                            </Option>
+                                            <Option value="Or">
+                                                Orthopedic
+                                            </Option>
+                                            <Option value="D">
+                                                Dermatology & Venerology
+                                            </Option>
+                                            <Option value="A">
+                                                Anesthesiology
+                                            </Option>
+                                            <Option value="N">
+                                                Nephrology
+                                            </Option>
+                                            <Option value="Ps">
+                                                Psychiatry
+                                            </Option>
+                                            <Option value="M">
+                                                General Medicine
+                                            </Option>
+                                            <Option value="On">Oncology</Option>
+                                            <Option value="Pd">
+                                                Paediatrics
+                                            </Option>
+                                            <Option value="E">
+                                                Ear Nose Throat
+                                            </Option>
+                                            <Option value="O">
+                                                Opthalmology
+                                            </Option>
+                                            <Option value="De">
+                                                Dental Surgeon
+                                            </Option>
+                                            <Option value="T">
+                                                Physiotherapy
                                             </Option>
                                         </Select>
                                     </div>

@@ -91,9 +91,13 @@ class QuickLinks extends React.Component {
 
                             <div className="window__content">
                                 <div className="shadow-layer">
-                                    <NotificationsList
-                                        notifications={this.state.notifications}
-                                    />
+                                    {this.state.notifications && (
+                                        <NotificationsList
+                                            notifications={
+                                                this.state.notifications
+                                            }
+                                        />
+                                    )}
                                 </div>
                             </div>
 

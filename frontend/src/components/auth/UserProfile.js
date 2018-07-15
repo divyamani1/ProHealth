@@ -7,12 +7,8 @@ import {GridLoader} from 'react-spinners';
 
 const UserProfile = props => {
     let loading = true;
-    let is_doctor = false;
     loading = props.loading;
     const {user} = props;
-    if (user) {
-        is_doctor = user;
-    }
 
     return (
         <div>
@@ -86,7 +82,7 @@ const UserProfile = props => {
                                 <p />
                             </div>
 
-                            {is_doctor && (
+                            {props.user.is_doctor && (
                                 <div className="profile__doctor">
                                     <DoctorProfile user={user} />
                                 </div>

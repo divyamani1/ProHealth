@@ -17,6 +17,25 @@ const QueryListItemComponent = props => {
         </div>
     );
 
+    const sp_map = {
+        S: 'General Surgery',
+        G: 'Obesterics and Gynecology',
+        P: 'General Physician',
+        Or: 'Orthopedic',
+        D: 'Dermatology & Venerology',
+        A: 'Anesthesiology',
+        N: 'Nephrology',
+        Ps: 'Psychiatry',
+        M: 'General Medicine',
+        On: 'Oncology',
+        Pd: 'Paediatrics',
+        E: 'Ear Nose Throat',
+        O: 'Opthalmology',
+        De: 'Dental Surgeon',
+        T: 'Physiotherapy',
+    };
+
+
     const editButton = (
         <div
             className="list-item__action--icon"
@@ -65,7 +84,7 @@ const QueryListItemComponent = props => {
                             {moment(props.item.date_of_submission).fromNow()}
                         </small>
                     </h4>
-                    <span className="tag">Neurology</span>
+                    <span className="tag">{sp_map[props.item.tag]}</span>
                 </div>
 
                 {!props.header && (

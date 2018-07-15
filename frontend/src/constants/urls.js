@@ -21,6 +21,7 @@ export const QueryUrls = {
     FILES: (id) => `${ROOT_URL}/api/query/${id}/files`,
     RESOLVE: (id) => `${ROOT_URL}/api/query/${id}/resolve`,
     TAKE: (id) => `${ROOT_URL}/api/query/${id}/take`,
+    TAKEN_QUERIES: `${ROOT_URL}/api/taken-query/`,
 }
 
 export const NotificationUrls = {
