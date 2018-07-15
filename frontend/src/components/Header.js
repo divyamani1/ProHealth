@@ -34,7 +34,6 @@ class Header extends React.Component {
     renderLinks = auth => {
         if (this.props.isAuthenticated) {
             return [
-                this.renderLinkItem('/feature', 'Feature', 'mail'),
                 this.renderLinkItem('/query', 'Query', 'message'),
                 this.renderLinkItem('/profile/user', 'Profile', 'profile'),
             ];
