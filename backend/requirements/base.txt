@@ -26,5 +26,5 @@ djangorestframework_simplejwt
     channels==1.1.8
 
 # Images
-Pillow==4.3.0
+Pillow==6.2.0
     olefile==0.44
